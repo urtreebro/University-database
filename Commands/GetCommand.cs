@@ -6,7 +6,7 @@ namespace University.Commands
     {
         public static void Get(SQLiteConnection connection)
         {
-            Console.WriteLine("Какие данные вы хотите получить: students, teachers, courses?");
+            Console.WriteLine("Какие данные вы хотите получить: students, teachers, courses, exams, grades?");
             string? command = Console.ReadLine();
             switch (command)
             {

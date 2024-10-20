@@ -6,7 +6,7 @@ namespace University.Commands
     {
         public static void Add(SQLiteConnection connection)
         {
-            Console.WriteLine("Что вы хотите добавить?");
+            Console.WriteLine("Что вы хотите добавить: student, teacher, course, exam, grade?");
             string? command = Console.ReadLine();
             switch (command)
             {
