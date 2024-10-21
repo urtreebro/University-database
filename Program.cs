@@ -6,7 +6,7 @@ class Program
 {
     static void Main()
     {
-        string connectionString = "Data Source=example.db;Version=3;";
+        string connectionString = "Data Source=University.db;Version=3;";
         using (var connection = new SQLiteConnection(connectionString))
         {
             connection.Open();
