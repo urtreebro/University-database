@@ -6,7 +6,7 @@ namespace University.Commands
     {
         public static void Delete(SQLiteConnection connection)
         {
-            Console.WriteLine("Что вы хотите удалить: student, teacher, course, exam, grade?");
+            Console.WriteLine("Что вы хотите удалить: student, teacher, course, exam?");
             string? command = Console.ReadLine();
             switch (command)
             {
