@@ -102,7 +102,25 @@ namespace University.Commands
                 int.TryParse(student, out int valid_student) &&
                 int.TryParse(exam, out int valid_exam))
             {
-                GradesTable.InsertGrade(connection, valid_score, valid_student, valid_exam);
+                bool flag = true;
+                int max_score = 0;
+                using (var command = new SQLiteCommand("SELECT max_score FROM Exams", connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        max_score = reader.GetInt32(0);
+                        if (valid_score > max_score || valid_score < 0)
+                        {
+                            Console.WriteLine("Неправильно введенная оценка.");
+                            flag = false;
+                        }
+                    }
+                }
+                if (flag)
+                {
+                    GradesTable.InsertGrade(connection, valid_score, valid_student, valid_exam);
+                }
             }
             else Console.WriteLine("Неправильно введенные данные.");
         }
